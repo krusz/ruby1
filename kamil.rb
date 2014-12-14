@@ -6,5 +6,8 @@ include REXML
 xmlFile = File.new("item.xml")
 xmlDoc = Document.new(xmlFile)
 
-item = xmlDoc.root
-puts "UUID: " + item.attributes["uuid"]
+items = xmlDoc.root
+
+xmlDoc.elements.each("items/item"){ 
+|item| puts "UUID: " + item.attributes["uuid"]
+}
